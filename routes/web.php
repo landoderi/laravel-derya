@@ -40,10 +40,10 @@ Route::get('books/{judul}', function ($a) {
     return 'Judul buku : ' .$a;
 });
 
-Route::get('post/{title}/{category}', function($a, $b) {
+// Route::get('post/{title}/{category}', function($a, $b) {
 
-    return view('post',['judul'=>$a, 'cat' =>$b]);
-});
+//     return view('post',['judul'=>$a, 'cat' =>$b]);
+// });
 
 Route::get('profile/{nama?}',function($a = "guest"){
     return 'halo nama saya ' .$a;
@@ -85,8 +85,8 @@ Route::get('test-model', function(){
 
 Route::get('create-data', function(){
     $data = App\Models\Post::create([   
-        'title'=>' makan',
-        'content'=>'Lorem Ipsum'
+        'title'=>'Belajar nafas ',
+        'content'=>'Sesak nafas'
     ]);
     return $data;
 });
@@ -118,8 +118,16 @@ Route::get('search{cari}', function ($query) {
 Route::get('greetings', [MyController::class, 'hello']);
 Route::get('student', [Mycontroller::class, 'siswa']);
 
-
-Route::get('post', [PostController::class, 'index']);
 Auth::routes();
 
+// post
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// edit data
+Route::get('post', [PostController::class, 'index'])->name('post.index');
+Route::get('post/create', [PostController::class, 'create'])->name('post.create');
+Route::post('post', [PostController::class, 'store'])->name('post.store');
+// edit data
+Route::get('post/{id}/edit', [PostController::class, 'edit'])->name('post.edit');
+Route::put('post/{id}', [PostController::class, 'update'])->name('post.update');
+// hapus data
+Route::delete('post/{id}', [PostController::class, 'destroy'])->name('post.delete');

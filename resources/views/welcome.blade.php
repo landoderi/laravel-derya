@@ -13,8 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    Selamat Jalan
+                        yu alredi lok in
                 </div>
             </div>
         </div>
