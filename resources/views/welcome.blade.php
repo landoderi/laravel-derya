@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('Welkom') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,7 +13,10 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                        yu alredi lok in
+                    <a href="{{ route('home') }}" class="d-grid gap-2 col-6 mx-auto btn btn-primary" style="align:float-right">
+                    Pergi ke halaman Home
+                    </a>
+                    <div class="d-flex align-items-end flex-column mt-auto p-2"><font color="gray">v 0.0.1</font></div>
                 </div>
             </div>
         </div>

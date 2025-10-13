@@ -86,7 +86,7 @@ Route::get('test-model', function(){
 Route::get('create-data', function(){
     $data = App\Models\Post::create([   
         'title'=>'Belajar nafas ',
-        'content'=>'Sesak nafas'
+        'content'=>'Sesak nafas',
     ]);
     return $data;
 });
@@ -129,5 +129,16 @@ Route::post('post', [PostController::class, 'store'])->name('post.store');
 // edit data
 Route::get('post/{id}/edit', [PostController::class, 'edit'])->name('post.edit');
 Route::put('post/{id}', [PostController::class, 'update'])->name('post.update');
+
+Route::get('post/{id}', [PostController::class, 'show'])->name('post.show');
+
 // hapus data
 Route::delete('post/{id}', [PostController::class, 'destroy'])->name('post.delete');
+
+// model Produk
+Route::resource('produk', App\Http\Controllers\ProdukController::class)->middleware('auth');
+
+// model produk
+use App\Http\Controllers\BiodataController;
+
+Route::resource('biodata', BiodataController::class);

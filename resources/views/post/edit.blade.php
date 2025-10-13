@@ -14,7 +14,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="">Content</label>
-                    <textarea name="content" class="form-control" value="{{ $post->content }}" required> </textarea>
+                    <textarea name="content" class="form-control" required>{{ $post->content }}  </textarea>
                 </div>
                 <div class="mb-3">
                     <button type="submit" class="btn btn-success">Simpan</button>
