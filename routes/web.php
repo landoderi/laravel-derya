@@ -138,7 +138,54 @@ Route::delete('post/{id}', [PostController::class, 'destroy'])->name('post.delet
 // model Produk
 Route::resource('produk', App\Http\Controllers\ProdukController::class)->middleware('auth');
 
-// model produk
-use App\Http\Controllers\BiodataController;
+// model biodata
 
-Route::resource('biodata', BiodataController::class);
+Route::resource('biodata', App\Http\Controllers\BiodataController::class)->middleware('auth');
+
+// routes/web.php
+use App\Http\Controllers\RelasiController;
+
+Route::get('/one-to-one', [RelasiController::class, 'index']);
+
+// routes/web.php
+use App\Models\Wali;
+
+Route::get('/wali-ke-mahasiswa', function () {
+    $wali = Wali::with('mahasiswa')->first();
+    return "{$wali->nama} adalah wali dari {$wali->mahasiswa->nama}";
+});
+
+
+Route::get('/one-to-many', [RelasiController::class, 'oneToMany']);
+
+
+use App\Models\Mahasiswa;
+
+Route::get('/mahasiswa-ke-dosen', function () {
+    $mhs = Mahasiswa::where('nim', '123456')->first();
+    return "{$mhs->nama} dibimbing oleh {$mhs->dosen->nama}";
+});
+
+
+Route::get('/many-to-many', [RelasiController::class, 'manyToMany']);
+// routes/web.php
+
+Route::get('eloquent', [RelasiController::class, 'eloquent']);
+
+Route::get('/one-to-one', [RelasiController::class, 'oneToOne']);
+use App\Models\Hobi;
+
+Route::get('/hobi/bola', function () {
+    $hobi = Hobi::where('nama_hobi', 'Bermain Bola')->first();
+    foreach ($hobi->mahasiswas as $mhs) {
+        echo $mhs->nama . '<br>';
+    }
+});
+Route::get('eloquent', [RelasiController::class, 'eloquent']);
+
+Route::resource('dosen', App\Http\Controllers\DosenController::class)->middleware('auth');
+
+Route::resource('hobi', App\Http\Controllers\HobiController::class)->middleware('auth');
+
+
+

@@ -7,10 +7,10 @@
             <div class="card">
                 <div class="card-header">
                     <div class="float-start">
-                        {{ __('biodata') }}
+                        {{ __('Hobi') }}
                     </div>
                     <div class="float-end">
-                        <a href="{{ route('biodata.create') }}" class="btn btn-sm btn-outline-primary">Tambah Data</a>
+                        <a href="{{ route('hobi.create') }}" class="btn btn-sm btn-outline-primary">Tambah Data</a>
                     </div>
                 </div>
 
@@ -20,38 +20,21 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama</th>
-                                    <th>Tgl</th>
-                                    <th>JK</th>
-                                    <th>Agama</th>
-                                    <th>Tinggi Badan</th>
-                                    <th>Berat Badan</th>
-                                    <th>Image</th>
+                                    <th>Nama hobi</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @php $no = 1; @endphp
-                                @forelse ($biodata as $data)
+                                @forelse ($hobi as $data)
                                 <tr>
                                     <td>{{ $no++ }}</td>
-                                    <td>{{ $data->nama }}</td>
-                                    <td>{{ $data->tgl_lahir }}</td>
-                                    <td>{{ $data->jk }}</td>
-                                    <td>{{ $data->agama }}</td>
-                                    <td>{{ $data->tinggi_badan }}</td>
-                                    <td>{{ $data->berat_badan }}</td>
+                                    <td>{{ $data->nama_hobi }}</td>
                                     <td>
-                                        <img src="{{ Storage::url($data->image)  }}" class="rounded"
-                                            style="width: 150px">
-                                    </td>
-                                    <td>
-                                        <form action="{{ route('biodata.destroy', $data->id) }}" method="POST">
+                                        <form action="{{ route('hobi.destroy', $data->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <a href="{{ route('biodata.show', $data->id) }}"
-                                                class="btn btn-sm btn-outline-dark">Show</a> |
-                                            <a href="{{ route('biodata.edit', $data->id) }}"
+                                            <a href="{{ route('hobi.edit', $data->id) }}"
                                                 class="btn btn-sm btn-outline-success">Edit</a> |
                                             <button type="submit" onsubmit="return confirm('Are You Sure ?');"
                                                 class="btn btn-sm btn-outline-danger">Delete</button>
@@ -60,14 +43,14 @@
                                 </tr>
                                 @empty
                                 <tr>
-                                    <td colspan="15" class="text-center">
-                                        Data biodata belum Tersedia.
+                                    <td colspan="5" class="text-center">
+                                        Data data belum Tersedia.
                                     </td>
                                 </tr>
                                 @endforelse
                             </tbody>
                         </table>
-                        {!! $biodata->withQueryString()->links('pagination::bootstrap-4') !!}
+                        {!! $hobi->withQueryString()->links('pagination::bootstrap-4') !!}
                     </div>
                 </div>
             </div>

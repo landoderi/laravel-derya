@@ -9,14 +9,15 @@ class Biodata extends Model
 {
     use HasFactory;
 
+    protected $table = 'biodatas'; // atau nama tabel kamu
+
     protected $fillable = [
         'nama',
         'tgl_lahir',
         'jk',
         'agama',
-        'foto',
         'tinggi_badan',
-        'berat_badan'
+        'berat_badan',
+        'image'
     ];
 }
-
