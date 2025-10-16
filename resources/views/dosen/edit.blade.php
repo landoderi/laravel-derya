@@ -22,7 +22,7 @@
                         <div class="mb-3">
                             <label class="form-label">Nama</label>
                             <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama"
-                                value="{{ $dosen->nama }}" placeholder="dosen Name" required>
+                                value="{{ $dosen->nama }}" placeholder="Nama dosen" required>
                             @error('nama')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -30,15 +30,15 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">nipd</label>
-                            <input type="number" class="form-control @error('nipd') is-invalid @enderror" name="nipd"
+                            <label class="form-label">Nipd</label>
+                            <input type="text" class="form-control @error('nipd') is-invalid @enderror" name="nipd"
                                 value="{{ $dosen->nipd }}" placeholder="nipd" required>
-                            @error('nipd')
+                            @error('Nipd')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
-
+                            <br>
                         <button type="submit" class="btn btn-sm btn-primary">Simpan</button>
                         <button type="reset" class="btn btn-sm btn-warning">Reset</button>
                     </form>

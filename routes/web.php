@@ -121,7 +121,7 @@ Route::get('student', [Mycontroller::class, 'siswa']);
 Auth::routes();
 
 // post
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // edit data
 Route::get('post', [PostController::class, 'index'])->name('post.index');
 Route::get('post/create', [PostController::class, 'create'])->name('post.create');

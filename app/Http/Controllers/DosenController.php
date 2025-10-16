@@ -24,8 +24,8 @@ class DosenController extends Controller
     {
         //validate form
 	      $validated = $request->validate([
-            'nama'      => 'required|min:5',
-            'nipd'     => 'required|min:4'
+            'nama'      => 'required',
+            'nipd'     => 'required'
         ]);
 
         $dosen = new dosen();
@@ -48,8 +48,8 @@ class DosenController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'nama'      => 'required|min:5',
-            'nipd'     => 'required|min:4',
+            'nama'      => 'required',
+            'nipd'     => 'required',
         ]);
         
 

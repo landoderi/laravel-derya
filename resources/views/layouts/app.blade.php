@@ -41,7 +41,7 @@
                         @guest
                         @else
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('biodata.index') }}">{{ __('biodata') }}</a>
+                            <a class="nav-link" href="{{ route('home') }}">{{ __('Larapel Lite') }}</a>
                         </li>
                         @endguest
                     </ul>

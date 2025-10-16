@@ -46,7 +46,7 @@
                                 @empty
                                 <tr>
                                     <td colspan="5" class="text-center">
-                                        Data data belum Tersedia.
+                                        Data belum Tersedia.
                                     </td>
                                 </tr>
                                 @endforelse

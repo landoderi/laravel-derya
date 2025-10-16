@@ -18,7 +18,7 @@
                     <form action="{{ route('biodata.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
-                            <label class="form-label">Nama biodata</label>
+                            <label class="form-label">Nama</label>
                             <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama"
                                 value="{{ old('nama') }}" placeholder="biodata Name" required>
                             @error('nama')
@@ -28,7 +28,7 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Harga biodata</label>
+                            <label class="form-label">Tgl</label>
                             <input type="number" class="form-control @error('harga') is-invalid @enderror" name="harga"
                                 value="{{ old('harga') }}" placeholder="Harga" required>
                             @error('harga')
