@@ -192,8 +192,6 @@ Route::resource('hobi', App\Http\Controllers\HobiController::class)->middleware(
 Route::resource('mahasiswa', App\Http\Controllers\MahasiswaController::class);
 
 Route::resource('wali', App\Http\Controllers\WaliController::class);
-
-Route::resource('pelanggan', App\Http\Controllers\PelangganController::class);
 // one to many
 Route::get('/one-to-many', [RelasiController::class, 'oneToMany']);
 Route::get('/mahasiswa-ke-dosen', function () {
@@ -201,3 +199,4 @@ Route::get('/mahasiswa-ke-dosen', function () {
     return "{$mhs->nama} dibimbing oleh {$mhs->dosen->nama}";
 });
 
+Route::resource('pelanggan', App\Http\Controllers\PelangganController::class);

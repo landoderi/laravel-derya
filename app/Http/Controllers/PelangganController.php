@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 class PelangganController extends Controller
 {
-
     public function index()
     {
         $pelanggan = Pelanggan::latest()->paginate(5);
@@ -24,9 +23,9 @@ class PelangganController extends Controller
     {
         //validate form
 	      $validated = $request->validate([
-            'nama'      => 'required|min:5',
+            'nama'      => 'required',
             'alamat'      => 'required',
-            'no_hp'      => 'required|min:8',
+            'no_hp'      => 'required',
         ]);
 
         $pelanggan = new Pelanggan();
@@ -48,16 +47,16 @@ class PelangganController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'nama'      => 'required|min:5',
+            'nama'      => 'required',
             'alamat'      => 'required',
-            'no_hp'      => 'required|min:8',
+            'no_hp'      => 'required',
         ]);
         
 
         $pelanggan = Pelanggan::findOrFail($id);
         $pelanggan->nama = $request->nama;
         $pelanggan->alamat = $request->alamat;
-        $pelanggan->no_hp = $request->no_hp;
+        $pelanggan->no_hp = $request->no_hp;      
         $pelanggan->save();
         return redirect()->route('pelanggan.index');
 

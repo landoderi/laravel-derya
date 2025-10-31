@@ -20,7 +20,7 @@
                         <div class="mb-3">
                             <label class="form-label">Nama</label>
                             <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama"
-                                value="{{ old('nama') }}" placeholder="Nama" required>
+                                value="{{ old('nama') }}" placeholder="Nama pelanggan" required>
                             @error('nama')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -30,7 +30,7 @@
                         <div class="mb-3">
                             <label class="form-label">alamat</label>
                             <input type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat"
-                                value="{{ old('alamat') }}" placeholder="alamat" required>
+                                value="{{ old('alamat') }}" placeholder="Nipd" required>
                             @error('alamat')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -38,9 +38,9 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">No Hp</label>
-                            <input type="number" class="form-control @error('no_hp') is-invalid @enderror" name="no_hp"
-                                value="{{ old('no_hp') }}" placeholder="" required>
+                            <label class="form-label">No hp</label>
+                            <input type="text" class="form-control @error('no_hp') is-invalid @enderror" name="no_hp"
+                                value="{{ old('no_hp') }}" placeholder="Nipd" required>
                             @error('no_hp')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

@@ -20,7 +20,7 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama pelanggan</th>
+                                    <th>Nama</th>
                                     <th>Alamat</th>
                                     <th>No hp</th>
                                 </tr>
@@ -32,13 +32,11 @@
                                     <td>{{ $no++ }}</td>
                                     <td>{{ $data->nama }}</td>
                                     <td>{{ $data->alamat }}</td>
-                                    <td>{{ $data->no_hp}}</td>
+                                    <td>{{ $data->no_hp }}</td>
                                     <td>
                                         <form action="{{ route('pelanggan.destroy', $data->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <a href="{{ route('pelanggan.show', $data->id) }}"
-                                                class="btn btn-sm btn-outline-dark">Show</a> |
                                             <a href="{{ route('pelanggan.edit', $data->id) }}"
                                                 class="btn btn-sm btn-outline-success">Edit</a> |
                                             <button type="submit" onsubmit="return confirm('Are You Sure ?');"
@@ -49,13 +47,13 @@
                                 @empty
                                 <tr>
                                     <td colspan="5" class="text-center">
-                                        Data data belum Tersedia.
+                                        Data belum Tersedia.
                                     </td>
                                 </tr>
                                 @endforelse
                             </tbody>
                         </table>
-                     
+                        {!! $pelanggan->withQueryString()->links('pagination::bootstrap-4') !!}
                     </div>
                 </div>
             </div>
