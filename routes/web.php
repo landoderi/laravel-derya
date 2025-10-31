@@ -187,5 +187,17 @@ Route::resource('dosen', App\Http\Controllers\DosenController::class)->middlewar
 
 Route::resource('hobi', App\Http\Controllers\HobiController::class)->middleware('auth');
 
+// CRUD ONE TO MANY
 
+Route::resource('mahasiswa', App\Http\Controllers\MahasiswaController::class);
+
+Route::resource('wali', App\Http\Controllers\WaliController::class);
+
+Route::resource('pelanggan', App\Http\Controllers\PelangganController::class);
+// one to many
+Route::get('/one-to-many', [RelasiController::class, 'oneToMany']);
+Route::get('/mahasiswa-ke-dosen', function () {
+    $mhs = App\Models\Mahasiswa::where('nim', '123457')->first();
+    return "{$mhs->nama} dibimbing oleh {$mhs->dosen->nama}";
+});
 
