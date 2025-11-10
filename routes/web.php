@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Mycontroller;
 use App\Http\Controllers\PostController;
 
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -136,7 +135,6 @@ Route::get('post/{id}', [PostController::class, 'show'])->name('post.show');
 Route::delete('post/{id}', [PostController::class, 'destroy'])->name('post.delete');
 
 // model Produk
-Route::resource('produk', App\Http\Controllers\ProdukController::class)->middleware('auth');
 
 // model biodata
 
@@ -193,6 +191,7 @@ Route::resource('mahasiswa', App\Http\Controllers\MahasiswaController::class);
 
 Route::resource('wali', App\Http\Controllers\WaliController::class);
 // one to many
+
 Route::get('/one-to-many', [RelasiController::class, 'oneToMany']);
 Route::get('/mahasiswa-ke-dosen', function () {
     $mhs = App\Models\Mahasiswa::where('nim', '123457')->first();
@@ -200,3 +199,11 @@ Route::get('/mahasiswa-ke-dosen', function () {
 });
 
 Route::resource('pelanggan', App\Http\Controllers\PelangganController::class);
+
+Route::prefix('latihan')->group(function () {
+    Route::get('/transaksi/search', [TransaksiController::class, 'search'])->name('transaksi.search');
+    Route::resource('pelanggan', App\Http\Controllers\PelangganController::class);
+    Route::resource('produk', App\Http\Controllers\ProdukController::class);
+    Route::resource('transaksi', App\Http\Controllers\TransaksiController::class);
+    Route::resource('pembayaran', App\Http\Controller\PembayaranController::class);
+})->middleware('auth');

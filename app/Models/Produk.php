@@ -8,6 +8,14 @@ class Produk extends Model
 {
    
 
-    protected $fillable = ['nama', 'deskripsi', 'harga', 'image'];
-    protected $visible = ['nama', 'deskripsi', 'harga', 'image'];
+    protected $fillable = ['nama_produk', 'stok', 'harga'];
+    protected $visible = ['nama_produk', 'stok', 'harga'];
+
+    public function transaksis()
+    {
+        // membuat relasi many to many ke Transaksi melalui table detail_transaksi
+        // yang diwakili oleh id_produk dan id_transaksi
+        // dan bisa melampirkan jumlah, sub total & tanggal created_at update
+        return this->belongsToMany(Transaksi::class, 'detail_transaksi');
+    }
 }
