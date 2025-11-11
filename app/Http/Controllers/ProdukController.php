@@ -47,13 +47,13 @@ class ProdukController extends Controller
     public function show($id)
     {
         $produk = Produk::findOrFail($id);
-        return view('latihan.produk.show', compact('produk'));
+        return view('produk.show', compact('produk'));
     }
 
     public function edit($id)
     {
         $produk = Produk::findOrFail($id);
-        return view('latihan.produk.edit', compact('produk'));
+        return view('produk.edit', compact('produk'));
     }
 
     public function update(Request $request, $id)
